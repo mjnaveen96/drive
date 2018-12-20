@@ -1,0 +1,52 @@
+<style>
+* {
+	box-sizing: border-box;
+}
+#tree {
+	margin: auto;
+	padding: 0;
+	list-style-type: none;
+	/* border: 1px solid green; */
+	width: 500px;
+}
+.container {
+	border: 1px solid gray;
+	display: inline-block;
+}
+
+ #innerTree {
+	/* display: inline-block; */
+	border: 1px solid gray;
+	padding: 5px;
+	margin: 10px;
+	width: 100px;
+	text-align: center;
+}
+</style>
+
+
+<form class="empId">
+  <input type="text" name="empId" value="hello" placeholder="employee id" ng-model=empId>
+  <input type="submit" name="button" ng-click="search(empId)" value="Submit">
+</form>
+<br>
+<br>
+<div>
+<!-- <div id="tree">
+<div id="innerTree" ng-repeat="tree in treeArr track by $index">
+	{{tree.id}}
+</div> -->
+
+<script type="text/ng-template"  id="tree_item_renderer.html">
+    {{tree.id}}
+    <!-- <ul id="tree">
+        <li id="innerTree" ng-repeat="tree in tree.items track by $index" ng-include="'tree_item_renderer.html'"></li>
+    </ul> -->
+</script>
+
+<ul id="tree">
+    <li id="innerTree" ng-repeat="tree in treeArr track by $index" ng-click="getChild(tree.id)" ng-include="'tree_item_renderer.html'"></li>
+</ul>
+
+</div>
+</div>
